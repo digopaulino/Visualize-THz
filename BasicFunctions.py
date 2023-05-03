@@ -1,5 +1,3 @@
-#!/home/rodrigo/anaconda3/envs/phys/bin/python
- 
 ## Plots the THz spectra with the fourier transform
 ## Requires numpy and pandas 
 
@@ -13,7 +11,7 @@ from scipy.fft import rfft, rfftfreq
 from scipy.optimize import curve_fit
 
 
-
+# Plot parameters
 params = {'font.family'         : 'DejaVu Sans',  
             'font.size'           : 18,        
             #   'text.usetex'         : True,

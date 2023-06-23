@@ -1,15 +1,15 @@
 # visualize-thz
-Repository with useful software for visualization THz spectroscopy data taken in the Ultrafast Dynamics Laboratory in McGill Univesrity.
+Repository with useful software for visualization THz spectroscopy data taken in the Ultrafast Dynamics Laboratory in McGill University.
 
-bin/ contains the python code (described below) that can be run directly. Executable files (generated with Pyinstaller) are contained in the dist/ folder.
+## Directories
+- bin/ contains the python code (described below) that can be run directly. 
+- dist/ contains executable files (generated with Pyinstaller) that can be run without a command line.
 
-## Description of files
+## Files
 
 - BasicFunction.py contains the basic python functions used in the programs
 
 - PlotTHz.py makes a GUI that allows selecting the data file, and plotting both time and frequency domain plots of the selected file
-	
-
 
 
 

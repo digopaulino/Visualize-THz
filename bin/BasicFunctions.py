@@ -61,9 +61,15 @@ def do_fft(data):       # Gets time (ps) and E_field from the "data" array, and 
 
 
 # Function to import data. To do: move to BasicFunctions.py
-def import_data(data_file):
+def import_data(data_file, channel=0, t_min_fft=0, t_max_fft=1):
     data = np.genfromtxt(data_file, skip_header=1).transpose()
     scan_properties = {}
+
+    if channel == 1:
+        data = np.delete(data, 2, axis=0)   # Deletes channel 2 signal
+    elif channel == 2:
+        data = np.delete(data, 1, axis=0)   # Deletes channel 1 signal
+
     
     if 'Average' in data_file:
         with open(data_file) as open_file:
@@ -75,7 +81,14 @@ def import_data(data_file):
         scan_properties['Time resolution'] = first_line.split('points, ')[1].split(' - ')[0]
 
     data[0] = np.abs(data[0])
-    fft = do_fft(data)
+    if t_min_fft != 0 and t_max_fft != 1:
+        indices = [(data[0] > t_min_fft) & (data[0] < t_max_fft)]
+        try:
+            fft = do_fft(data[:,indices])
+        except:
+            fft = do_fft(data)
+    else:
+        fft = do_fft(data)
         
     return data, fft, scan_properties
 

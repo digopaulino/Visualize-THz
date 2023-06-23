@@ -1,5 +1,6 @@
 *.log
 __pycache__/
+*.d2*
 
 # macOS files
 .DS_Store
